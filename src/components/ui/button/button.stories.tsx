@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
 import { Button } from './'
+import { Icon } from '@/components/Icon/Icon'
+import { FlexContainer } from '@/components/helperComponents/FlexContainer'
 
 const meta = {
   title: 'Components/Button',
@@ -61,5 +62,23 @@ export const AsLink: Story = {
     variant: 'primary',
     children: 'Link that looks like a button',
     as: 'a',
+  },
+}
+
+export const IconButton: Story = {
+  render: () => {
+    return (
+      <Button>
+        <FlexContainer justify={'space-between'} gap={'4px'}>
+          <Icon
+            iconId={'arrowButton1'}
+            width={'16px'}
+            height={'16px'}
+            color={'var(--light-100, #FFF)'}
+          />
+          Button primary
+        </FlexContainer>
+      </Button>
+    )
   },
 }
