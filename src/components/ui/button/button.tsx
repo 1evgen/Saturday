@@ -5,6 +5,7 @@ export type ButtonProps<T extends ElementType = 'button'> = {
   as?: T
   variant?: 'primary' | 'secondary' | 'tertiary' | 'link'
   fullWidth?: boolean
+  withIcon?: boolean
   className?: string
 } & ComponentPropsWithoutRef<T>
 

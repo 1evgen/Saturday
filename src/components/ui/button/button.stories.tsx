@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from './'
-import { Icon } from '@/components/Icon/Icon'
 import { FlexContainer } from '@/components/helperComponents/FlexContainer'
+import { Icon } from '@/components/_Icon/Icon'
+import { IconComponent } from '@/components/Icon/IconComponent'
 
 const meta = {
   title: 'Components/Button',
@@ -19,10 +20,34 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
-  args: {
-    variant: 'primary',
-    children: 'Primary Button',
-    disabled: false,
+  render: () => {
+    return (
+      <Button variant={'primary'} disabled={false}>
+        Button primary
+      </Button>
+    )
+  },
+}
+
+export const PrimaryWithIcon = {
+  render: () => {
+    return (
+      <Button variant={'primary'}>
+        <IconComponent name={'arrow'} />
+        Button primary
+      </Button>
+    )
+  },
+}
+
+export const SecondaryWithIcon = {
+  render: () => {
+    return (
+      <Button variant={'secondary'}>
+        <IconComponent name={'arrow'}></IconComponent>
+        Button Secondary
+      </Button>
+    )
   },
 }
 
@@ -40,13 +65,6 @@ export const Tertiary: Story = {
     disabled: false,
   },
 }
-export const Link: Story = {
-  args: {
-    variant: 'link',
-    children: 'Tertiary Button',
-    disabled: false,
-  },
-}
 
 export const FullWidth: Story = {
   args: {
@@ -59,8 +77,8 @@ export const FullWidth: Story = {
 
 export const AsLink: Story = {
   args: {
-    variant: 'primary',
-    children: 'Link that looks like a button',
+    variant: 'link',
+    children: 'Link button',
     as: 'a',
   },
 }
@@ -69,13 +87,8 @@ export const IconButton: Story = {
   render: () => {
     return (
       <Button>
-        <FlexContainer justify={'space-between'} gap={'4px'}>
-          <Icon
-            iconId={'arrowButton1'}
-            width={'16px'}
-            height={'16px'}
-            color={'var(--light-100, #FFF)'}
-          />
+        <FlexContainer justify={'space-between'} gap={'5px'}>
+          <Icon iconId={'arrowButton1'} color={'var(--light-100, #FFF)'} />
           Button primary
         </FlexContainer>
       </Button>

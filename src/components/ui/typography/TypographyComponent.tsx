@@ -18,12 +18,13 @@ type variantsTypography =
 type PropsType<TTag extends ElementType> = {
   variantName: variantsTypography
   children: ReactNode
+  color?: string
   as: TTag
 }
 export function TypographyComponent<TTag extends ElementType = 'p'>(
   props: PropsType<TTag> & Omit<ComponentPropsWithoutRef<TTag>, keyof PropsType<TTag>>
 ) {
-  const { children, variantName, as: Component = 'p', ...rest } = props
+  const { children, variantName, as: Component = 'p', color, ...rest } = props
 
   return (
     <Component className={variantName ? s[variantName] : ''} {...rest}>

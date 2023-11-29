@@ -1,4 +1,4 @@
-import IconsSprite from '@/accets/images/icons-sprite.svg'
+import IconsSprite from '@/assets/images/icons-sprite.svg'
 
 type PropsIconType = {
   iconId: string
@@ -15,7 +15,7 @@ export const Icon = (props: PropsIconType) => {
       xmlns="http://www.w3.org/2000/svg"
       width={width || '30px'}
       height={height || '20'}
-      viewBox={viewBox || '0 0 18 20'}
+      viewBox={viewBox}
       fill={color || 'black'}
     >
       <use xlinkHref={`${IconsSprite}#${iconId}`}></use>
