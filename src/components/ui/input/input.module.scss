@@ -1,0 +1,112 @@
+input {
+  top: 24px;
+
+  width: 284px;
+  height: 36px;
+
+  color: var(--color-dark-100);
+
+  background-color: var(--color-dark-900);
+  border: 1px solid var(--dark-300, #4c4c4c);
+  border-radius: 2px;
+  outline: none;
+
+  &::placeholder {
+    padding: 6px;
+    color: var(--color-dark-100);
+  }
+
+  &:active {
+    border: 1px solid var(--color-light-100);
+
+    &::placeholder {
+      color: var(--color-light-100);
+    }
+  }
+
+  &:hover {
+    background: var(--dark-700, #171717);
+    border: 1px solid var(--dark-100, #808080);
+    border-radius: 2px;
+  }
+
+  &:focus {
+    border: 1px solid var(--color-info-500);
+  }
+}
+
+.styledDisabled {
+  color: var(--dark-300, #4c4c4c);
+  border: 1px solid var(--dark-300, #4c4c4c);
+  border-radius: 2px;
+}
+
+.errorMessage {
+  display: block;
+
+  height: 0;
+
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 24px; /* 200% */
+  color: var(--color-danger-300);
+}
+
+.errorField {
+  color: var(--color-danger-300);
+  border: 1px solid var(--color-danger-300);
+}
+
+.wrapperInput {
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  bottom: 33px;
+  left: 1px;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--color-dark-100);
+  text-align: left;
+  letter-spacing: 0;
+}
+
+.iconEye {
+  position: absolute;
+  top: 5px;
+  left: 250px;
+  fill: var(--color-light-100);
+}
+
+.iconDisabled {
+  fill: var(--color-dark-300);
+}
+
+.searchInput input {
+  padding-left: 30px;
+}
+
+.testStyle {
+  position: relative;
+}
+
+.first {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  fill: var(--dark-100, #808080);
+}
+
+.second {
+  position: absolute;
+  top: 5px;
+  left: 255px;
+
+  display: block;
+
+  fill: white;
+}

@@ -6,6 +6,6 @@ interface ICard {
 }
 
 export const Card = (props: ICard) => {
-  const { children, className } = props
-  return <div className={`${s.card} ${className}`}>{children}</div>
+  const { className } = props
+  return <div className={`${s.card} ${className}`}></div>
 }
