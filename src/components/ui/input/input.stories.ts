@@ -11,11 +11,31 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const InputStory: Story = {
+export const FieldText: Story = {
   args: {
     labelName: 'input',
     placeholder: 'Input',
-    variant: 'showInput',
+    variant: 'textInput',
+    isDisabled: false,
+    type: 'text',
+  },
+}
+
+export const FieldPassword: Story = {
+  args: {
+    labelName: 'enter password',
+    placeholder: 'your password',
+    variant: 'passwordField',
+    isDisabled: false,
+    type: 'password',
+  },
+}
+
+export const FieldSearch: Story = {
+  args: {
+    labelName: 'Search',
+    placeholder: 'Input',
+    variant: 'searchInput',
     isDisabled: false,
   },
 }

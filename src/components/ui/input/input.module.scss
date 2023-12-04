@@ -4,7 +4,7 @@ input {
   width: 284px;
   height: 36px;
 
-  color: var(--color-dark-100);
+  color: white !important;
 
   background-color: var(--color-dark-900);
   border: 1px solid var(--dark-300, #4c4c4c);
@@ -14,14 +14,6 @@ input {
   &::placeholder {
     padding: 6px;
     color: var(--color-dark-100);
-  }
-
-  &:active {
-    border: 1px solid var(--color-light-100);
-
-    &::placeholder {
-      color: var(--color-light-100);
-    }
   }
 
   &:hover {
@@ -76,9 +68,12 @@ input {
 }
 
 .iconEye {
+  cursor: pointer;
+
   position: absolute;
   top: 5px;
   left: 250px;
+
   fill: var(--color-light-100);
 }
 
@@ -90,23 +85,24 @@ input {
   padding-left: 30px;
 }
 
-.testStyle {
+.wrapperIconSearch {
   position: relative;
 }
 
-.first {
+.searchIcon {
   position: absolute;
   top: 5px;
   left: 5px;
   fill: var(--dark-100, #808080);
 }
 
-.second {
+.closeIcon {
+  cursor: pointer;
+
   position: absolute;
   top: 5px;
   left: 255px;
 
   display: block;
-
   fill: white;
 }
