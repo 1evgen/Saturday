@@ -1,7 +1,7 @@
 // import React from 'react'
 import s from './input.module.scss'
 import { IconComponent } from '@/components/Icon/IconComponent'
-import React, { ChangeEvent, useRef, useState } from 'react'
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react'
 
 interface IInput {
   labelName: string
@@ -16,6 +16,13 @@ export const Input: React.FC<IInput> = ({ labelName, placeholder, variant, isDis
   const [inputType, setInputType] = useState<'text' | 'password' | null>(null)
   const [value, setValue] = useState('')
   // const [inputType, setInputType] = useState(type)
+
+  useEffect(() => {
+    if (inputRef.current) {
+      setInputType(inputRef.current.type as 'text' | 'password')
+    }
+  }, [])
+
   const showPassword = () => {
     if (inputRef.current) {
       const newType = inputType === 'password' ? 'text' : 'password'

@@ -1,5 +1,5 @@
 import s from '@/components/ui/ImputTest/inputTest.module.scss'
-import { ChangeEvent, useState } from 'react'
+import { forwardRef } from 'react'
 
 interface IInput {
   type: string
@@ -7,24 +7,12 @@ interface IInput {
   className?: string
 }
 
-export const InputTest = (props: IInput) => {
-  const { type, label, className } = props
-  const [value, setValue] = useState('')
-
-  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value)
-  }
-
+export const InputTest = forwardRef<HTMLInputElement, IInput>((IInput, ref) => {
+  const { type, label, className } = IInput
   return (
     <div className={s.inputWrapper}>
       <label htmlFor={'input'}>{label}</label>
-      <input
-        value={value}
-        onChange={onChangeHandler}
-        type={type}
-        id={'input'}
-        className={`${s.commonStyleInput}` ?? className}
-      />
+      <input ref={ref} type={type} id={'input'} className={`${s.commonStyleInput}` ?? className} />
     </div>
   )
-}
+})
