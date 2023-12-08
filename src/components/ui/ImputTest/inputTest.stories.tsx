@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { InputTest } from '@/components/ui/ImputTest/InputTest'
+import { useState } from 'react'
 
 const meta = {
   title: 'Components/Test/Input',
@@ -16,4 +17,14 @@ export const FieldTest: Story = {
     type: 'text',
     label: 'test',
   },
+}
+
+export const TestPassValue = () => {
+  let [value, setValue] = useState('')
+  return (
+    <div>
+      <InputTest type={'text'} label={'test'} setValue={setValue} />
+      <p>This value is ref from Input: {value}</p>
+    </div>
+  )
 }
