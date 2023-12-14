@@ -1,63 +1,108 @@
-@mixin typography($fontSize, $lineHeight, $fontWeight) {
+p,
+h1,
+h2,
+h3,
+div,
+span,
+a {
   margin: 0;
-
-  font-size: $fontSize;
-  font-weight: $fontWeight;
-  font-style: normal;
-  line-height: $lineHeight;
-  color: var(--dark-900, #000);
+  padding: 0;
 }
 
-.Large {
-  @include typography(var(--font-size-xxl), var(--line-height-l), var(--font-weight-bold));
+.large {
+  font-size: 26px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 36px; /* 138.462% */
+  color: var(--color-dark-900);
 }
 
 .h1 {
-  @include typography(var(--font-size-xl), var(--line-height-l), var(--font-weight-bold));
+  font-size: 20px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 36px;
+  color: var(--color-dark-900);
 }
 
 .h2 {
-  @include typography(var(--font-size-l), var(--line-height-m), var(--font-weight-bold));
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 24px; /* 133.333% */
+  color: var(--color-dark-900);
 }
 
 .h3 {
-  @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-bold));
+  font-size: 16px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 24px;
+  color: var(--color-dark-900);
 }
 
 .body1 {
-  @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-regular));
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 24px;
+  color: var(--color-dark-900);
 }
 
 .body2 {
-  @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-regular));
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 24px;
+  color: var(--color-dark-900);
 }
 
 .subtitle1 {
-  @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-bold));
+  font-size: 16px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 24px;
+  color: var(--color-dark-900);
 }
 
 .subtitle2 {
-  @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-bold));
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 24px;
+  color: var(--color-dark-900);
 }
 
 .caption {
-  @include typography(var(--font-size-xs), var(--line-height-s), var(--font-weight-regular));
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 16px;
+  color: var(--color-dark-900);
 }
 
 .overline {
-  @include typography(var(--font-size-xs), var(--line-height-s), var(--font-weight-bold));
+  font-size: 12px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 16px;
+  color: var(--color-dark-900);
 }
 
 .link1 {
-  @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-regular));
-
-  color: var(--primary-500, #397df6);
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 24px;
+  color: var(--color-info-500);
   text-decoration-line: underline;
 }
 
 .link2 {
-  @include typography(var(--font-size-xs), var(--line-height-s), var(--font-weight-regular));
-
-  color: var(--primary-500, #397df6);
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 16px;
+  color: var(--color-info-500);
   text-decoration-line: underline;
 }

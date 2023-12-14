@@ -1,8 +1,8 @@
 import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
-import s from './typography.module.scss'
+import s from '@/components/ui/typography/typography.module.scss'
 
-type variantsTypography =
-  | 'Large'
+export type variantsTypography =
+  | 'large'
   | 'h1'
   | 'h2'
   | 'h3'
@@ -15,19 +15,18 @@ type variantsTypography =
   | 'link1'
   | 'link2'
 
-type PropsType<TTag extends ElementType> = {
-  variantName: variantsTypography
+export type TypographyPropsType<T extends ElementType = 'div'> = {
+  variant: variantsTypography
+  as?: T
+  className?: string
   children: ReactNode
-  color?: string
-  as: TTag
-}
-export function TypographyComponent<TTag extends ElementType = 'p'>(
-  props: PropsType<TTag> & Omit<ComponentPropsWithoutRef<TTag>, keyof PropsType<TTag>>
-) {
-  const { children, variantName, as: Component = 'p', color, ...rest } = props
+} & ComponentPropsWithoutRef<T>
+
+export const Typography = <T extends ElementType = 'div'>(props: TypographyPropsType<T>) => {
+  const { as: Component = 'div', variant = 'body1', className, children, ...rest } = props
 
   return (
-    <Component className={variantName ? s[variantName] : ''} {...rest}>
+    <Component className={`${s[variant]} `} {...rest}>
       {children}
     </Component>
   )
