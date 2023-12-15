@@ -1,0 +1,62 @@
+button {
+  all: unset;
+}
+
+.CheckboxRoot {
+  position: absolute;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkboxWrapper {
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+
+  width: 32px;
+  height: 32px;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    z-index: 1;
+    top: -7.5%;
+    left: -7.5%;
+
+    display: inline-block;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: transparent;
+    border-radius: 50%;
+  }
+
+  &:hover::after {
+    background-color: green;
+  }
+}
+
+.styleCheckedIcon {
+  --checkbox-fill: var(--color-dark-900);
+  --checkbox-icon-fill: var(--color-light-100);
+}
+
+.CheckboxRoot:disabled .styleCheckedIcon {
+  --checkbox-fill: var(--color-dark-500);
+  --checkbox-icon-fill: var(--color-dark-100);
+}
+
+.styUncheckedIcon {
+  --color-icon: var(--color-light-900);
+}
+
+.CheckboxRoot:disabled .styUncheckedIcon {
+  --color-icon: var(--color-dark-100);
+}

@@ -4,6 +4,8 @@ import EyeIcon from '@/assets/svg/eye.svg?react'
 import CloseIcon from '@/assets/svg/CloseIcon.svg?react'
 import SearchIcon from '@/assets/svg/SearchIcon.svg?react'
 import HideIcon from '@/assets/svg/IconHide.svg?react'
+import ActiveCheckboxIcon from '@/assets/svg/activeCheckbox.svg?react'
+import NotActiveCheckboxIcon from '@/assets/svg/notActiveCheckbox.svg?react'
 
 export default {
   arrow: Arrow,
@@ -11,4 +13,6 @@ export default {
   closeIcon: CloseIcon,
   searchIcon: SearchIcon,
   hideIcon: HideIcon,
+  activeCheckbox: ActiveCheckboxIcon,
+  notActiveCheckboxIcon: NotActiveCheckboxIcon,
 }
