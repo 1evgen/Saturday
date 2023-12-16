@@ -23,7 +23,7 @@ export const ControlledCheckboxExample: Story = {
     checked: true,
     setChecked: () => {},
     id: 'id1',
-    disabled: true,
+    disabled: false,
   },
 }
 
@@ -32,15 +32,33 @@ export const UncontrolledCheckboxExample = () => {
   const onHandlerChecked = () => {
     setChecked(!checked)
   }
-
+  console.log(checked)
   return (
     <div>
       <CheckboxComponent
         checked={checked}
         setChecked={onHandlerChecked}
         id={'id-1'}
-        label={'Test'}
+        label={'Check-box'}
+        disabled={false}
       />
+    </div>
+  )
+}
+
+export const testWorkCheckbox = () => {
+  const [checked, setChecked] = useState(true)
+  const onHandlerChecked = () => {
+    setChecked(!checked)
+  }
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+      <div style={{ color: 'gold' }}>{checked ? 'checkbox enabled' : 'checkbox disabled'}</div>
+      <CheckboxComponent
+        checked={checked}
+        setChecked={onHandlerChecked}
+        id={'id-1'}
+      ></CheckboxComponent>
     </div>
   )
 }

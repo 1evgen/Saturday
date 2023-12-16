@@ -30,7 +30,7 @@ export const CheckboxComponent = (props: CheckboxType) => {
           )}
         </Checkbox.Indicator>
       </Checkbox.Root>
-      <Typography variant={'body2'} as={'label'} htmlFor={id} className="Label">
+      <Typography as={'label'} variant={'body2'} className={s.label} id={id}>
         {label}
       </Typography>
     </div>

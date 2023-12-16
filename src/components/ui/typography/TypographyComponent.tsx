@@ -26,7 +26,7 @@ export const Typography = <T extends ElementType = 'div'>(props: TypographyProps
   const { as: Component = 'div', variant = 'body1', className, children, ...rest } = props
 
   return (
-    <Component className={`${s[variant]} `} {...rest}>
+    <Component className={`${s[variant]} ${className}`} {...rest}>
       {children}
     </Component>
   )
