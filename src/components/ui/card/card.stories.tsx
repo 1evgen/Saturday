@@ -12,5 +12,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const CardStory: Story = {
-  args: {},
+  args: {
+    children: 'ddd',
+  },
 }

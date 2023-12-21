@@ -1,7 +1,26 @@
 button {
   all: unset;
-  cursor: pointer;
-  padding: 4px;
+}
+
+.checkboxWrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+  padding: 6px 9px 6px 6px;
+}
+
+.CheckboxRoot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 3.5px;
+
+  background-color: transparent;
   border-radius: 50%;
 
   &:hover {
@@ -25,23 +44,6 @@ button {
       background-color: transparent;
     }
   }
-}
-
-.checkboxWrapper {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: center;
-
-  width: 32px;
-  height: 32px;
-  padding: 6px 9px 6px 6px;
-}
-
-.CheckboxRoot {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .styleCheckedIcon {

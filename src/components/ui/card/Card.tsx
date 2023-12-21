@@ -1,11 +1,15 @@
 import s from '@/components/ui/card/card.module.scss'
-import { ReactNode } from 'react'
-interface ICard {
+import { HTMLProps, ReactNode } from 'react'
+interface ICard extends HTMLProps<HTMLDivElement> {
   children?: ReactNode
   className?: string
 }
 
 export const Card = (props: ICard) => {
-  const { className } = props
-  return <div className={`${s.card} ${className}`}></div>
+  const { className, children, ...rest } = props
+  return (
+    <div className={`${s.card} ${className}`} {...rest}>
+      {children}
+    </div>
+  )
 }
