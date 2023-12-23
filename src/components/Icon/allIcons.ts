@@ -19,11 +19,9 @@ export default {
   hideIcon: HideIcon,
   activeCheckbox: ActiveCheckboxIcon,
   notActiveCheckboxIcon: NotActiveCheckboxIcon,
-  iconTable: {
-    arrowDown: ArrowDown,
-    arrowUp: ArrowUp,
-    pencilIcon: PencilIcon,
-    startIcon: StartIcon,
-    trashIcon: TrashIcon,
-  },
+  arrowDown: ArrowDown,
+  arrowUp: ArrowUp,
+  pencilIcon: PencilIcon,
+  startIcon: StartIcon,
+  trashIcon: TrashIcon,
 }

@@ -35,16 +35,16 @@ export const TestTable: Story = () => (
 )
 
 let columnTest: ColumnType = [
-  { key: '1', title: 'Name', sortable: false, accessor: 'Name' },
-  { key: '2', title: 'Cards', sortable: false, accessor: 'Cards' },
-  { key: '3', title: 'Last Update', sortable: false, accessor: 'LastUpdate' },
-  { key: '4', title: 'Created by', sortable: false, accessor: 'CreatedBy' },
+  { key: 'Name', title: 'Name', sortable: false },
+  { key: 'Cards', title: 'Cards', sortable: true },
+  { key: 'LastUpdate', title: 'Last Update', sortable: true },
+  { key: 'CreatedBy', title: 'Created by', sortable: false },
 ]
 
 export const TableTest2 = () => {
   return (
     <Table.Root>
-      <TableHeader column={columnTest} />
+      <TableHeader column={columnTest} sort={{ key: 'LastUpdate', direction: 'asc' }} />
       <TableContentBody tableData={dataTest} columns={columnTest} />
     </Table.Root>
   )

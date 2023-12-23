@@ -1,9 +1,11 @@
 import { ComponentProps, ComponentPropsWithoutRef, FC } from 'react'
 import s from './table.module.scss'
+import { IconComponent } from '@/components/Icon/IconComponent'
+
+export type KeyType = 'Name' | 'Cards' | 'LastUpdate' | 'CreatedBy'
 
 export type ColumnType = {
-  key: string
-  accessor: 'Name' | 'Cards' | 'LastUpdate' | 'CreatedBy'
+  key: KeyType
   sortable?: boolean
   title: string
 }[]
@@ -61,11 +63,50 @@ export const Cell: FC<CellProps> = ({ className, ...rest }) => {
 }
 
 export const TableHeader: FC<TableHeaderType> = ({ onSort, sort, column, className, ...rest }) => {
+  const handleSort = (key: string, sortable?: boolean) => () => {
+    if (!onSort || !sortable) {
+      return
+    }
+
+    if (sort?.key !== key) {
+      return onSort({ direction: 'asc', key })
+    }
+
+    if (sort.direction === 'desc') {
+      return onSort(null)
+    }
+
+    return onSort({
+      direction: sort?.direction === 'asc' ? 'desc' : 'asc',
+      key,
+    })
+  }
+
+  const displaySort = (accessorItem: KeyType) => {
+    if (sort && sort.key === accessorItem) {
+      switch (sort.direction) {
+        case 'asc':
+          return <IconComponent name={'arrowUp'} size={16} className={s.styleIcon} />
+        case 'desc':
+          return <IconComponent name={'arrowDown'} size={16} className={s.styleIcon} />
+        default:
+          return ''
+      }
+    }
+  }
+
   return (
     <Table.Header className={`${className}`} {...rest}>
       <Table.Row>
         {column.map(el => {
-          return <Table.Cell key={el.key}>{el.title}</Table.Cell>
+          return (
+            <Table.Cell key={el.key} onClick={() => handleSort(el.key, el.sortable)}>
+              <div className={s.containerIcons}>
+                {el.title}
+                {displaySort(el.key)}
+              </div>
+            </Table.Cell>
+          )
         })}
       </Table.Row>
     </Table.Header>
@@ -78,26 +119,13 @@ export const TableContentBody: FC<ContentBody> = ({ tableData, columns, classNam
       {tableData.map(data => (
         <Table.Row key={data.id}>
           {columns.map(columnItem => (
-            <Table.Cell key={columnItem.key}>{data[columnItem.accessor]}</Table.Cell>
+            <Table.Cell key={columnItem.key}>{data[columnItem.key]}</Table.Cell>
           ))}
         </Table.Row>
       ))}
     </tbody>
   )
 }
-
-// export const TableSort: FC<
-//   Omit<
-//     ComponentPropsWithoutRef<'thead'> & {
-//       columns: Column[]
-//       onSort?: (sort: Sort) => void
-//       sort?: Sort
-//     },
-//     'children'
-//   >
-// > = ({ columns, onSort, sort }) => {
-//   return <div></div>
-// }
 
 export const Table = {
   Root,

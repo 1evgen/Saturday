@@ -1,5 +1,6 @@
 .table {
   border-collapse: collapse;
+  width: 100%;
   color: var(--color-light-100);
   border: 1px solid var(--color-dark-500);
 }
@@ -13,10 +14,16 @@
 }
 
 .cell {
-  width: 201px;
   padding: 6px 24px;
 }
 
-.cell:last-child {
-  width: 404px;
+.containerIcons {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.styleIcon {
+  cursor: pointer;
+  fill: var(--color-light-100);
 }
