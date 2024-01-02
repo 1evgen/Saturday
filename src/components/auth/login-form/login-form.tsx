@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button'
 import { CheckboxComponent } from '@/components/ui/checkbox'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Card } from '@/components/ui/card/Card'
+import s from '@/components/ui/card/card.module.scss'
 
 type FormValues = {
   email: string
@@ -39,17 +41,19 @@ export const LoginForm = () => {
   })
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <TextField {...register('email')} label={'email'} errorMessage={errors.email?.message} />
-      <TextField
-        {...register('password')}
-        label={'password'}
-        errorMessage={errors.password?.message}
-      />
-      <CheckboxComponent checked={value} setChecked={onChange} id={'id-1'} />
-      <Button type={'submit'} variant={'primary'}>
-        Submit
-      </Button>
-    </form>
+    <Card className={s.loginCard}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <TextField {...register('email')} label={'email'} errorMessage={errors.email?.message} />
+        <TextField
+          {...register('password')}
+          label={'password'}
+          errorMessage={errors.password?.message}
+        />
+        <CheckboxComponent checked={value} setChecked={onChange} id={'id-1'} />
+        <Button type={'submit'} variant={'primary'}>
+          Submit
+        </Button>
+      </form>
+    </Card>
   )
 }

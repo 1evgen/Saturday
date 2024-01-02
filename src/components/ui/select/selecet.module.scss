@@ -1,0 +1,28 @@
+button {
+  all: unset;
+}
+
+.SelectTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  min-width: 210px;
+  padding: 4px;
+
+  border: 1px solid #343434;
+  border-radius: 2px;
+}
+
+.SelectItem {
+  padding: 4px;
+}
+
+.SelectContent {
+  min-width: 210px;
+  border: 1px solid black;
+}
+
+.IconStyle {
+}
