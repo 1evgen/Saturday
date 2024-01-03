@@ -18,9 +18,23 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
+export const TestSelect: Story = {
   args: {
     placeholder: 'Test',
-    values: ['Apple', 'Banana', 'potato', 'tomato'],
+    options: [
+      { value: 'apple', label: 'apple' },
+      { value: 'strawberry', label: 'strawberry' },
+      { value: 'potato', label: 'potato' },
+    ],
+    disabled: true,
   },
 }
+
+// export const testWorkedSelect = () => {
+//   return (
+//     <div>
+//       <div>{test}</div>
+//       <SelectComponent placeholder={'fruit'} values={test} />
+//     </div>
+//   )
+// }

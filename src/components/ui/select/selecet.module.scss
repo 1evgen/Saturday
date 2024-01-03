@@ -11,18 +11,38 @@ button {
   min-width: 210px;
   padding: 4px;
 
-  border: 1px solid #343434;
+  border: 1px solid var(--color-dark-100);
   border-radius: 2px;
+}
+
+.SelectTrigger:focus-visible {
+  border-color: var(--color-info-700);
+}
+
+.SelectTrigger:hover {
+  background-color: var(--color-dark-500);
 }
 
 .SelectItem {
   padding: 4px;
+  outline: none;
+
+  &:hover {
+    background-color: var(--color-accent-900);
+  }
 }
 
 .SelectContent {
   min-width: 210px;
-  border: 1px solid black;
+  border: 1px solid var(--color-dark-300);
+}
+
+.Icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .IconStyle {
+  fill: var(--color-light-100);
 }

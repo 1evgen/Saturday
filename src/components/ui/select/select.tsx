@@ -4,11 +4,17 @@ import s from './selecet.module.scss'
 import { forwardRef, ReactNode, useState } from 'react'
 import { Typography } from '@/components/ui/typography'
 
+type option = {
+  value: string
+  label: string
+}
+
 type PropsType = {
   placeholder: string
   className?: string
-  values?: string[]
+  options?: option[]
   onChangeValue?: () => void
+  disabled?: boolean
 }
 
 export const SelectComponent = (props: PropsType) => {
@@ -17,23 +23,42 @@ export const SelectComponent = (props: PropsType) => {
     setIsOpen(!isOpen)
   }
 
-  const { placeholder, values, onChangeValue, className } = props
+  const resetAutoFocus = (event: any) => {
+    event.preventDefault()
+  }
+
+  const { placeholder, options, onChangeValue, disabled, className } = props
   return (
     <div>
-      <Select.Root open={isOpen} onOpenChange={OpenChangeSelect}>
+      <Select.Root
+        open={isOpen}
+        onOpenChange={OpenChangeSelect}
+        disabled={disabled}
+        onValueChange={onChangeValue}
+      >
         <Select.Trigger className={s.SelectTrigger}>
-          <Select.Value placeholder={placeholder} />
+          <Typography variant={'body1'} className={s.disabledText}>
+            <Select.Value placeholder={placeholder} />
+          </Typography>
           <Select.Icon className={s.Icon}>
-            <IconComponent name={isOpen ? 'arrowUp' : 'arrowDown'} size={18} />
+            <IconComponent
+              name={isOpen ? 'arrowUp' : 'arrowDown'}
+              size={18}
+              className={s.IconStyle}
+            />
           </Select.Icon>
         </Select.Trigger>
         <Select.Portal>
-          <Select.Content position={'popper'} className={s.SelectContent}>
+          <Select.Content
+            position={'popper'}
+            onCloseAutoFocus={resetAutoFocus}
+            className={s.SelectContent}
+          >
             <Select.Viewport>
               <Select.Group>
-                {values?.map(v => (
-                  <SelectItem key={v} value={v}>
-                    {v}
+                {options?.map(items => (
+                  <SelectItem key={items.value} value={items.value}>
+                    {items.label}
                   </SelectItem>
                 ))}
               </Select.Group>
