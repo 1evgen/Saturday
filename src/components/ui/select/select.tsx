@@ -10,6 +10,7 @@ export type OptionType = {
 }
 
 type PropsType = {
+  label?: string
   placeholder: string
   className?: string
   options?: OptionType[]
@@ -35,9 +36,16 @@ export const SelectComponent = (props: PropsType) => {
     event.preventDefault()
   }
 
-  const { placeholder, value, onChange, options, disabled } = props
+  const { placeholder, value, onChange, label, options, disabled } = props
   return (
     <div>
+      <Typography
+        as={'span'}
+        variant={'body2'}
+        className={`${disabled ? s.disabledLabel : s.labelStyle}`}
+      >
+        {label}
+      </Typography>
       <Select.Root
         open={isOpen}
         onOpenChange={OpenChangeSelect}

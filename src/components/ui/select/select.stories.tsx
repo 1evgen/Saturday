@@ -29,6 +29,7 @@ export const TestSelect: Story = {
       { value: 'potato', label: 'potato' },
     ],
     disabled: false,
+    label: 'Select',
   },
 }
 
