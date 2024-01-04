@@ -24,6 +24,7 @@ button {
 }
 
 .SelectItem {
+  cursor: pointer;
   padding: 4px;
   outline: none;
 
@@ -45,4 +46,12 @@ button {
 
 .IconStyle {
   fill: var(--color-light-100);
+}
+
+div.disabledText {
+  color: var(--color-dark-300);
+}
+
+.iconDisabled {
+  fill: var(--color-dark-300);
 }

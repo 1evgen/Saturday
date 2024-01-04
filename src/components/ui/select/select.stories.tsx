@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { SelectComponent } from '@/components/ui/select/select'
+import { OptionType, SelectComponent } from '@/components/ui/select/select'
+import { useState } from 'react'
+import { Typography } from '@/components/ui/typography'
 
 const meta = {
   argTypes: {},
@@ -26,15 +28,26 @@ export const TestSelect: Story = {
       { value: 'strawberry', label: 'strawberry' },
       { value: 'potato', label: 'potato' },
     ],
-    disabled: true,
+    disabled: false,
   },
 }
 
-// export const testWorkedSelect = () => {
-//   return (
-//     <div>
-//       <div>{test}</div>
-//       <SelectComponent placeholder={'fruit'} values={test} />
-//     </div>
-//   )
-// }
+export const testWorkedSelect = () => {
+  const [value, setValue] = useState('test')
+  const options: OptionType[] = [
+    { value: 'firstChange', label: 'Option 1' },
+    { value: 'secondChange', label: 'Option 2' },
+    { value: 'ThirtyChange', label: 'Option 3' },
+  ]
+
+  const testFunction = (val: string) => {
+    setValue(val)
+  }
+  return (
+    <div>
+      <Typography variant={'body1'}>{value}</Typography>
+
+      <SelectComponent placeholder="Select an option" options={options} onChange={testFunction} />
+    </div>
+  )
+}

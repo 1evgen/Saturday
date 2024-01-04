@@ -4,7 +4,7 @@ import s from './selecet.module.scss'
 import { forwardRef, ReactNode, useState } from 'react'
 import { Typography } from '@/components/ui/typography'
 
-type option = {
+export type OptionType = {
   value: string
   label: string
 }
@@ -12,13 +12,21 @@ type option = {
 type PropsType = {
   placeholder: string
   className?: string
-  options?: option[]
-  onChangeValue?: () => void
+  options?: OptionType[]
   disabled?: boolean
+  value?: string
+  onChange?: (value: any) => void
 }
 
 export const SelectComponent = (props: PropsType) => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const onChangeValue = (value: string) => {
+    if (onChange) {
+      onChange(value)
+    }
+  }
+
   const OpenChangeSelect = () => {
     setIsOpen(!isOpen)
   }
@@ -27,24 +35,25 @@ export const SelectComponent = (props: PropsType) => {
     event.preventDefault()
   }
 
-  const { placeholder, options, onChangeValue, disabled, className } = props
+  const { placeholder, value, onChange, options, disabled } = props
   return (
     <div>
       <Select.Root
         open={isOpen}
         onOpenChange={OpenChangeSelect}
         disabled={disabled}
-        onValueChange={onChangeValue}
+        value={value}
+        onValueChange={(value: string) => onChangeValue(value)}
       >
-        <Select.Trigger className={s.SelectTrigger}>
-          <Typography variant={'body1'} className={s.disabledText}>
+        <Select.Trigger className={`${s.SelectTrigger} ${s.triggerSelector}`} disabled={disabled}>
+          <Typography variant={'body1'} className={disabled ? s.disabledText : ''}>
             <Select.Value placeholder={placeholder} />
           </Typography>
           <Select.Icon className={s.Icon}>
             <IconComponent
               name={isOpen ? 'arrowUp' : 'arrowDown'}
               size={18}
-              className={s.IconStyle}
+              className={`${s.IconStyle} ${disabled ? s.iconDisabled : ''}`}
             />
           </Select.Icon>
         </Select.Trigger>
@@ -57,7 +66,7 @@ export const SelectComponent = (props: PropsType) => {
             <Select.Viewport>
               <Select.Group>
                 {options?.map(items => (
-                  <SelectItem key={items.value} value={items.value}>
+                  <SelectItem key={items.value} value={items.value} disabled={disabled}>
                     {items.label}
                   </SelectItem>
                 ))}
@@ -74,13 +83,20 @@ type SelectItemProps = {
   children: ReactNode
   className?: string
   value: string
+  disabled?: boolean
 }
 
 const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
   ({ children, value, className, ...props }, ref) => {
     return (
       <Select.Item value={value} className={`${s.SelectItem} ${className}`} {...props} ref={ref}>
-        <Select.ItemText>{<Typography variant={'body1'}>{children}</Typography>}</Select.ItemText>
+        <Select.ItemText>
+          {
+            <Typography variant={'body1'} className={props.disabled ? s.disabledText : ''}>
+              {children}
+            </Typography>
+          }
+        </Select.ItemText>
       </Select.Item>
     )
   }
