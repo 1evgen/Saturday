@@ -1,6 +1,6 @@
 import * as Select from '@radix-ui/react-select'
 import { IconComponent } from '@/components/Icon/IconComponent'
-import s from './selecet.module.scss'
+import s from './select.module.scss'
 import { forwardRef, ReactNode, useState } from 'react'
 import { Typography } from '@/components/ui/typography'
 
