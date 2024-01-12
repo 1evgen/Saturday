@@ -1,12 +1,14 @@
 type AvatarType = {
   width: string
-  heigth: string
+  height: string
+  link: string
 }
 
 export const Avatar = (props: AvatarType) => {
+  const { width, height, link } = props
   return (
     <div>
-      <img />
+      <img width={width} height={height} src={link} />
     </div>
   )
 }
