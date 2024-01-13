@@ -1,22 +1,31 @@
-import type { Meta } from '@storybook/react'
-import { StoryObj } from '@storybook/react'
-import { DropDownMenu } from '@/components/ui/dropDownMenu/dropDownMenu'
+import { DropDownItem, DropDownMenu } from '@/components/ui/dropDownMenu/dropDownMenu'
+import { Meta } from '@storybook/react'
+import { Avatar } from '@/components/avatar/avatar'
+import avatarImag from '@/components/avatar/avatest.jpeg'
 
 const meta = {
-  title: 'Components/DropDownMenu',
+  argTypes: {},
   component: DropDownMenu,
-  parameters: {
-    layout: 'centered',
-  },
+  decorators: [
+    Story => (
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Story />
+      </div>
+    ),
+  ],
   tags: ['autodocs'],
-  argTypes: {
-    setChecked: () => {},
-  },
+  title: 'Components/DropDownMenu',
 } satisfies Meta<typeof DropDownMenu>
 
 export default meta
-type Story = StoryObj<typeof meta>
 
-export const DropDownMenuTest: Story = {
-  args: {},
+export const DropDownMenuTest = () => {
+  return (
+    <>
+      <DropDownMenu menuComponent={<Avatar link={avatarImag} />}>
+        <DropDownItem>Ivan</DropDownItem>
+        <DropDownItem>test</DropDownItem>
+      </DropDownMenu>
+    </>
+  )
 }

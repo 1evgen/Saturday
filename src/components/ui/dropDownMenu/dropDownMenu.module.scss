@@ -1,0 +1,27 @@
+.ContentArea {
+  position: relative;
+
+  padding: 10px;
+
+  background-color: var(--color-dark-700);
+  border: 1px solid var(--color-dark-500);
+  border-radius: 4px;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    z-index: -1;
+    top: -6px;
+    right: 5px;
+    transform: rotate(45deg);
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+
+    background-color: var(--color-dark-700);
+    border: 1px solid var(--color-dark-500);
+  }
+}

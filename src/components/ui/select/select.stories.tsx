@@ -47,7 +47,6 @@ export const testWorkedSelect = () => {
   return (
     <div>
       <Typography variant={'body1'}>{value}</Typography>
-
       <SelectComponent placeholder="Select an option" options={options} onChange={testFunction} />
     </div>
   )

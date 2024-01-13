@@ -21,8 +21,8 @@ type Story = StoryObj<typeof meta>
 
 export const AvatarExample: Story = {
   args: {
-    width: '250px',
-    height: '150px',
+    width: '36px',
+    height: '36px',
     link: AvatarImg,
   },
 }
