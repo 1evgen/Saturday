@@ -10,6 +10,7 @@ import ArrowUp from '@/assets/svg/ArrowUp.svg?react'
 import PencilIcon from '@/assets/svg/PencilIcon.svg?react'
 import StartIcon from '@/assets/svg/StartIcon.svg?react'
 import TrashIcon from '@/assets/svg/TrashIcon.svg?react'
+import ProfileIcon from '@/assets/svg/ProfileIcon.svg?react'
 
 export default {
   arrow: Arrow,
@@ -24,4 +25,5 @@ export default {
   pencilIcon: PencilIcon,
   startIcon: StartIcon,
   trashIcon: TrashIcon,
+  profileIcon: ProfileIcon,
 }

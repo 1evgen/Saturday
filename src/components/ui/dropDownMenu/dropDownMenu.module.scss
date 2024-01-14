@@ -7,6 +7,21 @@
   border: 1px solid var(--color-dark-500);
   border-radius: 4px;
 
+  &::after {
+    content: '';
+
+    position: absolute;
+    top: -1px;
+    right: 5px;
+
+    display: block;
+
+    width: 20px;
+    height: 1px;
+
+    background-color: var(--color-dark-700);
+  }
+
   &::before {
     content: '';
 
@@ -24,4 +39,26 @@
     background-color: var(--color-dark-700);
     border: 1px solid var(--color-dark-500);
   }
+}
+
+.wrapperItems {
+  display: flex;
+  width: 100%;
+}
+
+.Items {
+  cursor: pointer;
+
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px;
+
+  outline: none;
+}
+
+.separator {
+  height: 1px;
+  background-color: var(--color-dark-500);
 }
