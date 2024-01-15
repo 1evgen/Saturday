@@ -1,6 +1,6 @@
 import {
   DropDownItem,
-  DropDownMenu,
+  MyDropDownMenu,
   DropDownSeparator,
 } from '@/components/ui/dropDownMenu/dropDownMenu'
 import { Meta } from '@storybook/react'
@@ -8,10 +8,11 @@ import { Avatar } from '@/components/avatar/avatar'
 import avatarImag from '@/components/avatar/avatest.jpeg'
 import s from '@/components/ui/dropDownMenu/dropDownMenu.module.scss'
 import { IconComponent } from '@/components/Icon/IconComponent'
+import { Typography } from '@/components/ui/typography'
 
 const meta = {
   argTypes: {},
-  component: DropDownMenu,
+  component: MyDropDownMenu,
   decorators: [
     Story => (
       <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -21,25 +22,63 @@ const meta = {
   ],
   tags: ['autodocs'],
   title: 'Components/DropDownMenu',
-} satisfies Meta<typeof DropDownMenu>
+} satisfies Meta<typeof MyDropDownMenu>
 
 export default meta
 
-export const DropDownMenuTest = () => {
+export const AvatarTriggerDropDown = () => {
   return (
     <>
-      <DropDownMenu className={s.styleText} menuComponent={<Avatar link={avatarImag} />}>
-        <DropDownItem>
-          <IconComponent name={'profileIcon'} />
-          My Profile
+      <MyDropDownMenu className={s.styleText} menuComponent={<Avatar link={avatarImag} />}>
+        <DropDownItem className={s.wrapperItem}>
+          <Avatar link={avatarImag} />
+          <div className={s.Boxtex}>
+            <Typography as={'div'} variant={'subtitle2'}>
+              Ivan
+            </Typography>
+            <Typography as={'div'} variant={'caption'} className={s.mailTextStyle}>
+              j&johnson@gmail.com
+            </Typography>
+          </div>
         </DropDownItem>
         <DropDownSeparator />
+
         <DropDownItem>
-          <IconComponent name={'arrow'} />
+          <IconComponent name={'profileIcon'} size={18} className={s.iconStyle} />
           Sign out
         </DropDownItem>
         <DropDownSeparator />
-      </DropDownMenu>
+
+        <DropDownItem>
+          <IconComponent name={'arrow'} size={18} className={s.iconStyle} />
+          Sign out
+        </DropDownItem>
+        <DropDownSeparator />
+      </MyDropDownMenu>
+    </>
+  )
+}
+
+export const ButtonTriggerDropDown = () => {
+  return (
+    <>
+      <MyDropDownMenu menuComponent={<IconComponent name={'dot'} />}>
+        <DropDownItem>
+          <IconComponent name={'profileIcon'} size={18} className={s.iconStyle} />
+          <Typography variant={'caption'}>Learn</Typography>
+        </DropDownItem>
+        <DropDownSeparator />
+        <DropDownItem>
+          <IconComponent name={'arrow'} size={18} className={s.iconStyle} />
+          <Typography variant={'caption'}>Edit</Typography>
+        </DropDownItem>
+        <DropDownSeparator />
+        <DropDownItem>
+          <IconComponent name={'arrow'} size={18} className={s.iconStyle} />
+          <Typography variant={'caption'}>Delete</Typography>
+        </DropDownItem>
+        <DropDownSeparator />
+      </MyDropDownMenu>
     </>
   )
 }

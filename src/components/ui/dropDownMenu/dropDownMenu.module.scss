@@ -1,6 +1,7 @@
 .ContentArea {
   position: relative;
 
+  width: 100%;
   padding: 10px;
 
   background-color: var(--color-dark-700);
@@ -41,19 +42,17 @@
   }
 }
 
-.wrapperItems {
-  display: flex;
-  width: 100%;
-}
-
 .Items {
   cursor: pointer;
 
-  gap: 10px;
+  display: flex;
+  gap: 5px;
   align-items: center;
-  justify-content: center;
 
-  padding: 5px;
+  width: 100%;
+  padding: 10px;
+
+  color: var(--color-light-100);
 
   outline: none;
 }
@@ -61,4 +60,12 @@
 .separator {
   height: 1px;
   background-color: var(--color-dark-500);
+}
+
+.iconStyle {
+  fill: var(--color-light-100);
+}
+
+div.mailTextStyle {
+  color: var(--color-dark-100);
 }

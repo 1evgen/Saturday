@@ -1,7 +1,6 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import s from './dropDownMenu.module.scss'
 import { ReactNode } from 'react'
-import { Typography } from '@/components/ui/typography'
 
 type DropDownMenuPropsType = {
   menuComponent: ReactNode
@@ -11,7 +10,7 @@ type DropDownMenuPropsType = {
   className?: string
 }
 
-export const DropDownMenu = (props: DropDownMenuPropsType) => {
+export const MyDropDownMenu = (props: DropDownMenuPropsType) => {
   const { menuComponent, children, aline = 'end', sideOffset = 3, className } = props
   return (
     <DropdownMenu.Root>
@@ -31,19 +30,12 @@ export const DropDownMenu = (props: DropDownMenuPropsType) => {
 
 type DropdownItemType = {
   children: ReactNode
-  label?: string
+  className?: string
 }
 
 export const DropDownItem = (props: DropdownItemType) => {
-  const { children } = props
-
-  return (
-    <div className={s.wrapperItems}>
-      <DropdownMenu.Item className={`${s.Items}`}>
-        <Typography variant={'caption'}>{children}</Typography>
-      </DropdownMenu.Item>
-    </div>
-  )
+  const { children, className } = props
+  return <DropdownMenu.Item className={`${s.Items} ${className}`}>{children}</DropdownMenu.Item>
 }
 
 export const DropDownSeparator = () => {

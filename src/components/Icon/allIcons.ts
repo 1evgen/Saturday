@@ -11,6 +11,7 @@ import PencilIcon from '@/assets/svg/PencilIcon.svg?react'
 import StartIcon from '@/assets/svg/StartIcon.svg?react'
 import TrashIcon from '@/assets/svg/TrashIcon.svg?react'
 import ProfileIcon from '@/assets/svg/ProfileIcon.svg?react'
+import Dot from '@/assets/svg/circleDotIcon.svg?react'
 
 export default {
   arrow: Arrow,
@@ -26,4 +27,5 @@ export default {
   startIcon: StartIcon,
   trashIcon: TrashIcon,
   profileIcon: ProfileIcon,
+  dot: Dot,
 }
