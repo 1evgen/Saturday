@@ -26,7 +26,7 @@ const meta = {
 
 export default meta
 
-export const AvatarTriggerDropDown = () => {
+export const AvatarTriggerDropDownMenu = () => {
   return (
     <>
       <MyDropDownMenu className={s.styleText} menuComponent={<Avatar link={avatarImag} />}>
@@ -59,22 +59,24 @@ export const AvatarTriggerDropDown = () => {
   )
 }
 
-export const ButtonTriggerDropDown = () => {
+export const ButtonTriggerDropDownMenu = () => {
   return (
     <>
-      <MyDropDownMenu menuComponent={<IconComponent name={'dot'} />}>
+      <MyDropDownMenu
+        menuComponent={<IconComponent name={'dot'} size={32} className={s.iconStyleButton} />}
+      >
         <DropDownItem>
-          <IconComponent name={'profileIcon'} size={18} className={s.iconStyle} />
+          <IconComponent name={'startIcon'} size={18} className={s.iconStyle} />
           <Typography variant={'caption'}>Learn</Typography>
         </DropDownItem>
         <DropDownSeparator />
         <DropDownItem>
-          <IconComponent name={'arrow'} size={18} className={s.iconStyle} />
+          <IconComponent name={'pencilIcon'} size={18} className={s.iconStyle} />
           <Typography variant={'caption'}>Edit</Typography>
         </DropDownItem>
         <DropDownSeparator />
         <DropDownItem>
-          <IconComponent name={'arrow'} size={18} className={s.iconStyle} />
+          <IconComponent name={'trashIcon'} size={18} className={s.iconStyle} />
           <Typography variant={'caption'}>Delete</Typography>
         </DropDownItem>
         <DropDownSeparator />
