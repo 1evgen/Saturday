@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react'
 import { StoryObj } from '@storybook/react'
-import { RadioGroupComponent } from '@/components/ui/radioGroup/radioGroup'
+import { RadioGroupComponent, RadioValueType } from '@/components/ui/radioGroup/radioGroup'
 
 const meta = {
   title: 'Components/RadioGroup',
@@ -14,13 +14,24 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const testArray = [
-  { id: '1', value: 'default', label: 'default' },
-  { id: '2', label: 'test 1', value: 'test 1' },
-  { id: '3', value: 'Test2', label: 'Test2' },
+const testArray: RadioValueType[] = [
+  { id: '1qw', value: 'England', label: 'England' },
+  { id: '2ew', value: 'Germany', label: 'Germany' },
+  { id: '32e', value: 'Russian', label: 'Russian' },
+  { id: '1cds', value: 'China', label: 'China' },
+  { id: '2rew', value: 'Turkey', label: 'Turkey' },
+  { id: '311wqx', value: 'Belarus', label: 'Belarus' },
 ]
-export const testRadio: Story = {
+export const ChooseCountryStory: Story = {
   args: {
-    demo: testArray,
+    values: testArray,
+  },
+}
+
+const testRadio = [{ id: '1qwdde', value: 'Radio Group', label: 'Radio Group' }]
+export const RadioDefaultStory: Story = {
+  args: {
+    values: testRadio,
+    disabled: false,
   },
 }
