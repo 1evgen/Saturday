@@ -7,7 +7,8 @@ export const SliderComponent = () => {
         <Slider.Track className={s.sliderTrack}>
           <Slider.Range className={s.sliderRange} />
         </Slider.Track>
-        <Slider.Thumb className={s.sliderThumb} aria-label="Volume" />
+        <Slider.Thumb className={s.sliderThumb} aria-label="Volume1" />
+        <Slider.Thumb className={s.sliderThumb} aria-label="Volume2" />
       </Slider.Root>
     </>
   )
