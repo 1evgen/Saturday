@@ -1,0 +1,33 @@
+// tabsSwitcher.module.scss
+
+.Tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.List {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Trigger {
+  cursor: pointer;
+
+  width: 16%;
+  height: 8%;
+  padding: 6px 24px;
+
+  color: #2f68cc;
+
+  background-color: var(--color-dark-900);
+  border-color: var(--color-dark-300);
+}
+
+.horizontal.List {
+  flex-direction: row;
+}
+
+.vertical.List {
+  flex-direction: column;
+}

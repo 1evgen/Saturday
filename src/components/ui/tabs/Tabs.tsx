@@ -1,18 +1,34 @@
-import s from './tabsSwitcher.module.scss'
 import * as Tabs from '@radix-ui/react-tabs'
+import { Typography } from '@/components/ui/typography'
+import s from './tabsSwitcher.module.scss'
 
-type TabsSwitcher = {
+export type TabValueType = {
   id: string
   value: string
 }
 
-export const TabsSwitcher = (props: TabsSwitcher) => {
-  const { value, id } = props
+export enum Orientation {
+  Horizontal = 'horizontal',
+  Vertical = 'vertical',
+}
+
+export type TabsSwitcherType = {
+  tabValues: TabValueType[]
+  orientation: Orientation
+}
+
+export const TabsSwitcher = (props: TabsSwitcherType) => {
+  const { tabValues, orientation = Orientation.Vertical } = props
+
   return (
     <div>
-      <Tabs.Root>
-        <Tabs.List>
-          <Tabs.Trigger value={id}>value</Tabs.Trigger>
+      <Tabs.Root className={s.Tabs}>
+        <Tabs.List className={`${s.List} ${s[orientation]} `} data-orientation={orientation}>
+          {tabValues.map(el => (
+            <Tabs.Trigger value={el.id} key={el.id} className={s.Trigger}>
+              <Typography variant={'body1'}>{el.value}</Typography>
+            </Tabs.Trigger>
+          ))}
         </Tabs.List>
       </Tabs.Root>
     </div>
