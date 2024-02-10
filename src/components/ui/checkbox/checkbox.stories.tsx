@@ -11,7 +11,7 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    setChecked: () => {},
+    onValueChange: () => {},
   },
 } satisfies Meta<typeof CheckboxComponent>
 
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>
 export const ControlledCheckboxExample: Story = {
   args: {
     checked: true,
-    setChecked: () => {},
+    onValueChange: () => {},
     id: 'id1',
     disabled: false,
   },
@@ -37,7 +37,7 @@ export const UncontrolledCheckboxExample = () => {
     <div>
       <CheckboxComponent
         checked={checked}
-        setChecked={onHandlerChecked}
+        onValueChange={onHandlerChecked}
         id={'id-1'}
         label={'Check-box'}
         disabled={false}
@@ -56,7 +56,7 @@ export const testWorkCheckbox = () => {
       <div style={{ color: 'gold' }}>{checked ? 'checkbox enabled' : 'checkbox disabled'}</div>
       <CheckboxComponent
         checked={checked}
-        setChecked={onHandlerChecked}
+        onValueChange={onHandlerChecked}
         id={'id-1'}
       ></CheckboxComponent>
     </div>

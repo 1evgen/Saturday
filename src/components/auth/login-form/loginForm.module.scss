@@ -1,5 +1,11 @@
-.loginCard {
-  width: 60%;
-  max-width: 413px;
-  padding: 33px 36px 29px;
+.loginBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  width: 300px;
+  height: 100%;
+  padding: 15px;
+
+  border: 1px solid red;
 }

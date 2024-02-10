@@ -4,22 +4,22 @@ import { IconComponent } from '@/components/Icon/IconComponent'
 import { Typography } from '@/components/ui/typography'
 
 type CheckboxType = {
-  checked: boolean
-  setChecked: () => void
+  checked?: boolean
+  onValueChange: () => void
   label?: string
-  id: string
+  id?: string
   disabled?: boolean
 }
 
 export const CheckboxComponent = (props: CheckboxType) => {
-  const { checked, setChecked, label, id, disabled } = props
+  const { checked, onValueChange, label, id, disabled } = props
   return (
     <div className={s.checkboxWrapper}>
       <Checkbox.Root
         disabled={disabled}
         className={s.CheckboxRoot}
         checked={checked}
-        onCheckedChange={setChecked}
+        onCheckedChange={onValueChange}
         id={id}
       >
         <Checkbox.Indicator className={s.CheckboxIndicator} asChild forceMount id={id}>

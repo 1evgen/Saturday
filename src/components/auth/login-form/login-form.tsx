@@ -1,13 +1,14 @@
-import { useController, useForm } from 'react-hook-form'
 import { TextField } from '@/components/ui/TextField'
 import { Button } from '@/components/ui/button'
+import { IconComponent } from '@/components/Icon/IconComponent'
+import s from './loginForm.module.scss'
+import { Card } from '@/components/ui/card/Card'
+import { useController, useForm } from 'react-hook-form'
 import { CheckboxComponent } from '@/components/ui/checkbox'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Card } from '@/components/ui/card/Card'
-import s from '@/components/ui/card/card.module.scss'
 
-type FormValues = {
+type LoginFormType = {
   email: string
   password: string
   rememberMe: boolean
@@ -20,40 +21,39 @@ const loginShema = z.object({
 
 export const LoginForm = () => {
   const {
-    control,
     register,
     handleSubmit,
+    control,
     formState: { errors },
-  } = useForm<FormValues>({
+  } = useForm<LoginFormType>({
     resolver: zodResolver(loginShema),
   })
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = (data: LoginFormType) => {
     console.log(data)
   }
-
   const {
-    field: { value, onChange },
+    field: { onChange, value },
   } = useController({
-    name: 'rememberMe',
     control,
-    defaultValue: false,
+    name: 'rememberMe',
   })
 
   return (
-    <Card className={s.loginCard}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Card className={s.loginBox}>
         <TextField {...register('email')} label={'email'} errorMessage={errors.email?.message} />
         <TextField
           {...register('password')}
           label={'password'}
           errorMessage={errors.password?.message}
         />
-        <CheckboxComponent checked={value} setChecked={onChange} id={'id-1'} />
+        <CheckboxComponent checked={value} onValueChange={onChange} id={'eddq11'} />
         <Button type={'submit'} variant={'primary'}>
-          Submit
+          <IconComponent className={s.styleIcon} name={'arrow'} size={16} />
+          send
         </Button>
-      </form>
-    </Card>
+      </Card>
+    </form>
   )
 }
